@@ -13,7 +13,7 @@
 - [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1) —— 为 Node.js 服务器创建的模块系统。
 - [UMD](https://github.com/umdjs/umd) —— 另外一个模块系统，建议作为通用的模块系统，它与 AMD 和 CommonJS 都兼容。
 
-现在，所有他们都在慢慢成为历史的一部分，但我们仍然可以在旧脚本中找到它们。
+现在，它们都在慢慢成为历史的一部分，但我们仍然可以在旧脚本中找到它们。
 
 语言级的模块系统在 2015 年的时候出现在了标准（ES6）中，此后逐渐发展，现在已经得到了所有主流浏览器和 Node.js 的支持。因此，我们将从现在开始学习现代 JavaScript 模块（module）。
 
@@ -57,8 +57,8 @@ sayHi('John'); // Hello, John!
 
 浏览器会自动获取并解析（evaluate）导入的模块（如果需要，还可以分析该模块的导入），然后运行该脚本。
 
-```warn header="Modules work only via HTTP(s), not in local files"
-If you try to open a web-page locally, via `file://` protocol, you'll find that `import/export` directives don't work. Use a local web-server, such as [static-server](https://www.npmjs.com/package/static-server#getting-started) or use the "live server" capability of your editor, such as VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to test modules.
+```warn header="模块只通过 HTTP(s) 工作，在本地文件则不行"
+如果你尝试通过 `file://` 协议在本地打开一个网页，你会发现 `import/export` 指令不起作用。你可以使用本地 Web 服务器，例如 [static-server](https://www.npmjs.com/package/static-server#getting-started)，或者使用编辑器的“实时服务器”功能，例如 VS Code 的 [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) 来测试模块。
 ```
 
 ## 模块核心功能
@@ -260,7 +260,7 @@ sayHi(); // Ready to serve, *!*Pete*/!*!
 
 <script>
 *!*
-  alert(typeof button); // Error: button is undefined，脚本看不到下面的元素
+  alert(typeof button); // button 为 undefined，脚本看不到下面的元素
 */!*
   // 常规脚本会立即运行，常规脚本的运行是在在处理页面的其余部分之前进行的
 </script>

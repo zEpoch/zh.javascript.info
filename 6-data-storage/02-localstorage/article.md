@@ -127,17 +127,17 @@ for(let key of keys) {
 如果是任何其他类型，例数字或对象，它会被自动转换为字符串。
 
 ```js run
-sessionStorage.user = {name: "John"};
-alert(sessionStorage.user); // [object Object]
+localStorage.user = {name: "John"};
+alert(localStorage.user); // [object Object]
 ```
 
 我们可以使用 `JSON` 来存储对象：
 
 ```js run
-sessionStorage.user = JSON.stringify({name: "John"});
+localStorage.user = JSON.stringify({name: "John"});
 
 // sometime later
-let user = JSON.parse( sessionStorage.user );
+let user = JSON.parse( localStorage.user );
 alert( user.name ); // John
 ```
 
@@ -216,7 +216,7 @@ localStorage.setItem('now', Date.now());
 
 **这允许同源的不同窗口交换消息。**
 
-现代浏览器还支持 [Broadcast channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API)，这是用于同源窗口之间通信的特殊 API，它的功能更全，但被支持的情况不好。有一些库基于 `localStorage` 来 polyfill 该 API，使其可以用在任何地方。
+现代浏览器还支持 [Broadcast channel API](mdn:/api/Broadcast_Channel_API)，这是用于同源窗口之间通信的特殊 API，它的功能更全，但被支持的情况不好。有一些库基于 `localStorage` 来 polyfill 该 API，使其可以用在任何地方。
 
 ## 总结
 

@@ -200,16 +200,16 @@ alert(uint8array[1]); // 1
 
 还有两种其他方法：
 
-- `arr.set(fromArr, [offset])` 将 `fromArr` 中从 `offset`（默认为 0）开始的所有元素复制到 `arr`。
+- `arr.set(fromArr, [offset])` 从 `offset`（默认为 0）开始，将 `fromArr` 中的所有元素复制到 `arr`。
 - `arr.subarray([begin, end])` 创建一个从 `begin` 到 `end`（不包括）相同类型的新视图。这类似于 `slice` 方法（同样也支持），但不复制任何内容 —— 只是创建一个新视图，以对给定片段的数据进行操作。
 
-有了这些方法，我们可以复制、混合类型化数组，从现有数组创建新数组，等。
+有了这些方法，我们可以复制、混合类型化数组，从现有数组创建新数组等。
 
 
 
 ## DataView
 
-[DataView](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/DataView) 是在 `ArrayBuffer` 上的一种特殊的超灵活“未类型化”视图。它允许以任何格式访问任何偏移量（offset）的数据。
+[DataView](mdn:/JavaScript/Reference/Global_Objects/DataView) 是在 `ArrayBuffer` 上的一种特殊的超灵活“未类型化”视图。它允许以任何格式访问任何偏移量（offset）的数据。
 
 - 对于类型化的数组，构造器决定了其格式。整个数组应该是统一的。第 i 个数字是 `arr[i]`。
 - 通过 `DataView`，我们可以使用 `.getUint8(i)` 或 `.getUint16(i)` 之类的方法访问数据。我们在调用方法时选择格式，而不是在构造的时候。
@@ -244,7 +244,7 @@ alert( dataView.getUint32(0) ); // 4294967295（最大的 32 位无符号整数�
 dataView.setUint32(0, 0); // 将 4 个字节的数字设为 0，即将所有字节都设为 0
 ```
 
-当我们将混合格式的数据存储在同一缓冲区（buffer）中时，`DataView` 非常有用。例如，我们存储一个成对序列（16 位整数，32 位浮点数）。用 `DataView` 可以轻松访问它们。
+当我们将混合格式的数据存储在同一缓冲区（buffer）中时，`DataView` 非常有用。例如，当我们存储一个成对序列（16 位整数，32 位浮点数）时，用 `DataView` 可以轻松访问它们。
 
 ## 总结
 

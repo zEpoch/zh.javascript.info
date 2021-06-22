@@ -167,7 +167,7 @@ sayHi(); // Hello, John!
 setTimeout(sayHi, 1000); // Hello, John!
 
 // 即使 user 的值在不到 1 秒内发生了改变
-// sayHi 还是会使用预先绑定（pre-bound）的值
+// sayHi 还是会使用预先绑定（pre-bound）的值，该值是对旧的 user 对象的引用
 user = {
   sayHi() { alert("Another user in setTimeout!"); }
 };
@@ -207,7 +207,7 @@ JavaScript 库还提供了方便批量绑定的函数，例如 lodash 中的 [_.
 
 ## 偏函数（Partial functions）
 
-到现在位置，我们只在谈论绑定 `this`。让我们再深入一步。
+到现在为止，我们只在谈论绑定 `this`。让我们再深入一步。
 
 我们不仅可以绑定 `this`，还可以绑定参数（arguments）。虽然很少这么做，但有时它可以派上用场。
 

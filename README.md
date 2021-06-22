@@ -9,25 +9,25 @@
 
 - 如果你正在使用本教程学习，并且认为对你有很大帮助，也请你考虑扫码赞助本项目，请我读一本书 📚
 
-
-
 | 微信扫码关注官方公众号，订阅更多精彩内容 | 赞助项目（支付宝）| 赞助项目（微信）|
 |-|-|-|
 | <img src="https://user-images.githubusercontent.com/26959437/64488661-0e0d2c00-d27d-11e9-82cd-751f65346617.jpg" width="400px;" /> | <img src="https://user-images.githubusercontent.com/26959437/77983009-62264d80-7340-11ea-8af9-0690289599af.jpeg" width="200px;" /> | <img src="https://user-images.githubusercontent.com/26959437/77983315-496a6780-7341-11ea-9e44-c28a942feabe.jpeg" width="200px;" /> |
 
 -->
 
-| 微信扫码关注官方公众号，订阅更多精彩内容 |
+| 微信扫码关注官方订阅号，订阅更多精彩内容 |
 |-|
-| <img src="https://i.loli.net/2020/07/07/CbUGTm1sWD5V4HO.png" width="500px;" /> |
+| <img src="https://user-images.githubusercontent.com/26959437/120764347-a3b91680-c54a-11eb-9a15-31bb2596b0db.png" width="500px;" /> |
+| <img src="https://user-images.githubusercontent.com/26959437/120764353-a61b7080-c54a-11eb-8a79-75177c342b45.png" width="500px;" /> |
 
 **加入读者交流群：**
 
 - **微信群**：加微信 **`imleviding`** 或 [扫二维码](https://user-images.githubusercontent.com/26959437/64596211-0fa63380-d3e6-11e9-983d-bd788ffe2370.jpg)，验证信息填写 **`JS 教程`**。
 - **QQ 群**：打开 QQ 搜索群号 **`866757202`** 或 [扫二维码](https://user-images.githubusercontent.com/26959437/64609229-12f9e900-d3ff-11e9-96e8-147335f5e264.jpg)，验证信息填写 **`JS 教程`**。
 
+教程配套每日一题：https://github.com/leviding/one-note-a-day
 
-本项目托管了现代 JavaScript 教程中文版的内容，该内容发布在 [https://zh.javascript.info](https://zh.javascript.info)
+本项目托管了现代 JavaScript 教程中文版的内容，此内容发布在 [https://zh.javascript.info](https://zh.javascript.info)
 
 <!--
 
@@ -61,12 +61,20 @@
 
 我们希望本教程可以以更多语言呈现。如果你感兴趣，那就快来和我们一起翻译吧。
 
-详见 [翻译](https://javascript.info/translate)。
+详见 [翻译进度](https://javascript.info/translate)。
 
 
-## 贡献指南 
+## 贡献指南
 
-**翻译流程：**
+我们希望与更多人一起维护本教程。
+
+发现有错误？发现有些主题教程中没有？那就赶快提交 Pull Request 来想大家分享你的知识吧 👏
+
+**你可以在任何编辑器中编辑本项目中的文件**。本教程使用增强的 "MarkDown" 格式，易于掌握。而且，如果你想在本地预览效果，我们也提供了一个可以在本地运行本教程的服务端 <https://github.com/javascript-tutorial/server>。
+
+详细贡献者列表请见 <https://javascript.info/about#contributors>。
+
+### 翻译流程
 
 - 检查 [中文翻译进度 issue（Chinese Translate Progress issue）](https://github.com/javascript-tutorial/zh.javascript.info/issues/324)。
 - 选择一篇还没有被选走（在 [列表](https://github.com/javascript-tutorial/zh.javascript.info/issues/324#issue-433691990) 中暂未被人勾选）的文章。
@@ -96,14 +104,14 @@
 
 ## 文件结构
 
-每一个章节或任务都在它自己的文件夹里。
+每一个章节或任务都有它自己的文件夹。
 
-这个文件夹以 `N-url` 命名，`N` 为用于排序的数字，`url` 是该内容在网站上的链接中带有内容标题的部分。
+文件夹以 `N-url` 命名，`N` 为用于排序的数字，`url` 是该内容在网站上的链接中带有内容标题的部分。
 
 文件的类型是依据文件夹中的文件定义的：
 
 - `index.md` 对应一个章节，
-- `article.md` 对应一个文章，
+- `article.md` 对应一篇文章，
 - `task.md` 对应一个任务（对应的答案必须在 `solution.md` 文件中提供）。
 
 每一个文件都以 `# 一级标题` 开始。 
@@ -263,13 +271,13 @@ importance: 5
 
 运行服务端的教程请见 <https://github.com/javascript-tutorial/server>。 
 
-我们希望与大家合作维护本教程。本教程的贡献者列表请见：<https://zh.javascript.info/about>。
-
-
 ---
 
-本中文版教程的维护者们 🚀
+本中文版教程的核心维护者 🚀
 
 - LeviDing [@leviding](https://github.com/leviding)
-- LycheeEng [@lycheeEng](https://github.com/lycheeEng)
 - Martin [@MartinsYong](https://github.com/MartinsYong)
+- Bemself [bemself](https://github.com/bemself)
+- LycheeEng [@lycheeEng](https://github.com/lycheeEng)
+
+我们希望与大家合作维护本教程。本教程的详细贡献者列表请见：<https://zh.javascript.info/about>。

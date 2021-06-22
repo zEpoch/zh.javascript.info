@@ -72,7 +72,7 @@ promise.then(function(result) {
 });
 ```
 
-我们在这里所做的只是一个 promise 的几个处理程序（handler）。他们不会相互传递 result；相反，它们之间彼此独立运行处理任务。
+我们在这里所做的只是一个 promise 的几个处理程序（handler）。它们不会相互传递 result；相反，它们之间彼此独立运行处理任务。
 
 这里它的一张示意图（你可以将其与上面的链式调用做一下比较）：
 
@@ -232,7 +232,7 @@ JavaScript 检查在 `(*)` 行中由 `.then` 处理程序（handler）返回的�
 let promise = fetch(url);
 ```
 
-执行这条语句，向 `url` 发出网络请求并返回一个 promise。当远程服务器返回 header（是在 **全部响应加载完成前**）时，该 promise 用使用一个 `response` 对象来进行 resolve。
+执行这条语句，向 `url` 发出网络请求并返回一个 promise。当远程服务器返回 header（是在 **全部响应加载完成前**）时，该 promise 使用一个 `response` 对象来进行 resolve。
 
 为了读取完整的响应，我们应该调用 `response.text()` 方法：当全部文字（full text）内容从远程服务器下载完成后，它会返回一个 promise，该 promise 以刚刚下载完成的这个文本作为 result 进行 resolve。
 
@@ -265,7 +265,7 @@ fetch('/article/promise-chaining/user.json')
 
 现在，让我们用加载好的用户信息搞点事情。
 
-例如，我们可以多发一个到 GitHub 的请求，加载用户个人资料并显示头像：
+例如，我们可以再向 GitHub 发送一个请求，加载用户个人资料并显示头像：
 
 ```js run
 // 发送一个对 user.json 的请求

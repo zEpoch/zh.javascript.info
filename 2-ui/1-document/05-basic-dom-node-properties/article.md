@@ -198,7 +198,7 @@ tagName 和 nodeName 之间有什么不同吗？
 
 ## innerHTML：内容
 
-[innerHTML](https://w3c.github.io/DOM-Parsing/#widl-Element-innerHTML) 属性允许将元素中的 HTML 获取为字符串形式。
+[innerHTML](https://w3c.github.io/DOM-Parsing/#the-innerhtml-mixin) 属性允许将元素中的 HTML 获取为字符串形式。
 
 我们也可以修改它。因此，它是更改页面最有效的方法之一。
 
@@ -397,7 +397,7 @@ elem.innerHTML = elem.innerHTML + "..."
 <div id="elem2"></div>
 
 <script>
-  let name = prompt("What's your name?", "<b>Winnie-the-pooh!</b>");
+  let name = prompt("What's your name?", "<b>Winnie-the-Pooh!</b>");
 
   elem1.innerHTML = name;
   elem2.textContent = name;
@@ -405,7 +405,7 @@ elem.innerHTML = elem.innerHTML + "..."
 ```
 
 1. 第一个 `<div>` 获取 name “作为 HTML”：所有标签都变成标签，所以我们可以看到粗体的 name。
-2. 第二个 `<div>` 获取 name “作为文本”，因此我们可以从字面上看到 `<b>Winnie-the-pooh!</b>`。
+2. 第二个 `<div>` 获取 name “作为文本”，因此我们可以从字面上看到 `<b>Winnie-the-Pooh!</b>`。
 
 在大多数情况下，我们期望来自用户的文本，并希望将其视为文本对待。我们不希望在我们的网站中出现意料不到的 HTML。对 `textContent` 的赋值正好可以做到这一点。
 
@@ -413,7 +413,7 @@ elem.innerHTML = elem.innerHTML + "..."
 
 "hidden" 特性（attribute）和 DOM 属性（property）指定元素是否可见。
 
-我们可以在 HTML 中使用它，或者使用 JavaScript 进行赋值，如下所示：
+我们可以在 HTML 中使用它，或者使用 JavaScript 对其进行赋值，如下所示：
 
 ```html run height="80"
 <div>Both divs below are hidden</div>

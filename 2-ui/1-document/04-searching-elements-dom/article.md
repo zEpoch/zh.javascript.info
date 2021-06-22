@@ -174,7 +174,7 @@ CSS 选择器的伪类，例如 `:hover` 和 `:active` 也都是被支持的。�
 
 如今，它们大多已经成为了历史，因为 `querySelector` 功能更强大，写起来更短。
 
-因此，这里我们介绍它们只是为了完整起见，而你仍然可以在就脚本中找到这些方法。
+因此，这里我们介绍它们只是为了完整起见，而你仍然可以在旧脚本中找到这些方法。
 
 - `elem.getElementsByTagName(tag)` 查找具有给定标签的元素，并返回它们的集合。`tag` 参数也可以是对于“任何标签”的星号 `"*"`。
 - `elem.getElementsByClassName(className)` 返回具有给定CSS类的元素。
@@ -363,7 +363,7 @@ document.getElementsByTagName('input')[0].value = 5;
 </tbody>
 </table>
 
-目前为止，最常用的是 `querySelector` 和 `querySelectorAll`，但是 `getElementBy*` 可能会偶尔有用，或者可以在就脚本中找到。
+目前为止，最常用的是 `querySelector` 和 `querySelectorAll`，但是 `getElement(s)By*` 可能会偶尔有用，或者可以在旧脚本中找到。
 
 此外：
 

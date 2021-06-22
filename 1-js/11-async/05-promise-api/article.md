@@ -16,7 +16,7 @@
 let promise = Promise.all([...promises...]);
 ```
 
-`Promise.all` 接受一个 promise 数组作为参数（从技术上将，它可以是任何可迭代的，但通常是一个数组）并返回一个新的 promise。
+`Promise.all` 接受一个 promise 数组作为参数（从技术上讲，它可以是任何可迭代的，但通常是一个数组）并返回一个新的 promise。
 
 当所有给定的 promise 都被 settled 时，新的 promise 才会 resolve，并且其结果数组将成为新的 promise 的结果。
 
@@ -100,7 +100,7 @@ Promise.all([
 ```
 
 ````smart header="`Promise.all(iterable)` 允许在 `iterable` 中使用 non-promise 的“常规”值"
-通常，`Promise.all(...)` 接受可迭代对象（iterable）的 promise（大多数情况下是数组）。但是，如果这些对象中的任意一个都不是 promise，那么它将被“按原样”传递给结果数组。
+通常，`Promise.all(...)` 接受含有 promise 项的可迭代对象（大多数情况下是数组）作为参数。但是，如果这些对象中的任何一个不是 promise，那么它将被“按原样”传递给结果数组。
 
 例如，这里的结果是 `[1, 2, 3]`：
 
@@ -176,15 +176,14 @@ Promise.allSettled(urls.map(url => fetch(url)))
 如果浏览器不支持 `Promise.allSettled`，很容易进行 polyfill：
 
 ```js
-if(!Promise.allSettled) {
-  Promise.allSettled = function(promises) {
-    return Promise.all(promises.map(p => Promise.resolve(p).then(value => ({
-      status: 'fulfilled',
-      value
-    }), reason => ({
-      status: 'rejected',
-      reason
-    }))));
+if (!Promise.allSettled) {
+  const rejectHandler = reason => ({ status: 'rejected', reason });
+
+  const resolveHandler = value => ({ status: 'fulfilled', value });
+
+  Promise.allSettled = function (promises) {
+    const convertedPromises = promises.map(p => Promise.resolve(p).then(resolveHandler, rejectHandler));
+    return Promise.all(convertedPromises);
   };
 }
 ```

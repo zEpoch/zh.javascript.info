@@ -187,7 +187,6 @@ alert(event.clientX); // undefined，未知的属性被忽略了！
 <button onclick="hide()">Hide()</button>
 
 <script>
-  // hide() 将在 2 秒后被自动调用
   function hide() {
     let event = new CustomEvent("hide", {
       cancelable: true // 没有这个标志，preventDefault 将不起作用
@@ -211,13 +210,13 @@ alert(event.clientX); // undefined，未知的属性被忽略了！
 
 ## 事件中的事件是同步的
 
-通常事件是在队列中处理的。也就是说：如果浏览器正在处理 `onclick`，这时发生了一个新的事件，例如鼠标移动了，那么它会被排入队列，相应的 `mousemove` 处理程序将在 `onclick` 事件处理完成后被调用。
+通常事件是在队列中处理的。也就是说：如果浏览器正在处理 `onclick`，这时发生了一个新的事件，例如鼠标移动了，那么它的处理程序会被排入队列，相应的 `mousemove` 处理程序将在 `onclick` 事件处理完成后被调用。
 
-值得注意的例外情况就是，一个事件是在另一个事件中发起的。例如 using `dispatchEvent`. Such events are processed immediately: the new event handlers are called, and then the current event handling is resumed.
+值得注意的例外情况就是，一个事件是在另一个事件中发起的。例如使用 `dispatchEvent`。这类事件将会被立即处理，即在新的事件处理程序被调用之后，恢复到当前的事件处理程序。
 
-For instance, in the code below the `menu-open` event is triggered during the `onclick`.
+例如，在下面的代码中，`menu-open` 事件是在 `onclick` 事件执行过程中被调用的。
 
-It's processed immediately, without waiting for `onlick` handler to end:
+它会被立即执行，而不必等待 `onclick` 处理程序结束：
 
 
 ```html run autorun
@@ -234,7 +233,7 @@ It's processed immediately, without waiting for `onlick` handler to end:
     alert(2);
   };
 
-  // triggers between 1 and 2
+  // 在 1 和 2 之间触发
   document.addEventListener('menu-open', () => alert('nested'));
 </script>
 ```
@@ -243,11 +242,11 @@ It's processed immediately, without waiting for `onlick` handler to end:
 
 请注意，嵌套事件 `menu-open` 会在 `document` 上被捕获。嵌套事件的传播（propagation）和处理先被完成，然后处理过程才会返回到外部代码（`onclick`）。
 
-这不只是与 `dispatchEvent` 有关，还有其他情况。If an event handler calls methods that trigger to other events -- they are too processed synchronously, in a nested fashion.
+这不只是与 `dispatchEvent` 有关，还有其他情况。如果一个事件处理程序调用了触发其他事件的方法 —— 它们同样也会被以嵌套的方式同步处理。
 
-Let's say we don't like it. We'd want `onclick` to be fully processed first, independently from `menu-open` or any other nested events.
+不过有时候，这并不是我们期望的结果。我们想让 `onclick` 不受 `menu-open` 或者其它嵌套事件的影响，优先被处理完毕。
 
-然后，我们可以将 `dispatchEvent`（或另一个触发事件的调用）放在 `onclick` 末尾，或者最好将其包装到零延迟的 `setTimeout` 中：
+那么，我们就可以将 `dispatchEvent`（或另一个触发事件的调用）放在 `onclick` 末尾，或者最好将其包装到零延迟的 `setTimeout` 中：
 
 ```html run
 <button id="menu">Menu (click me)</button>
@@ -283,9 +282,9 @@ Let's say we don't like it. We'd want `onclick` to be fully processed first, ind
 
 对于自定义事件，我们应该使用 `CustomEvent` 构造器。它有一个名为 `detail` 的附加选项，我们应该将事件特定的数据分配给它。然后，所有处理程序可以以 `event.detail` 的形式来访问它。
 
-尽管技术上有可能生成像 `click` 或 `keydown` 这样的浏览器事件，但我们还是应谨慎使用。
+尽管技术上可以生成像 `click` 或 `keydown` 这样的浏览器事件，但我们还是应谨慎使用它们。
 
-我们不应该生成浏览器事件，因为这是运行处理程序的一种怪异（hacky）方式。大多数时候，这都是一种糟糕的架构。
+我们不应该生成浏览器事件，因为这是运行处理程序的一种怪异（hacky）方式。大多数时候，这都是糟糕的架构。
 
 可以生成原生事件：
 
